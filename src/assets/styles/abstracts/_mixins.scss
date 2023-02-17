@@ -1,0 +1,48 @@
+@mixin flex($ai: center, $jc: flex-start) {
+    display: flex;
+    align-items: $ai;
+    justify-content: $jc;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 320px) {
+            @content;
+        } 
+    }
+    @if $breakpoint == 319 {
+        @media (max-width: 319px) {
+            @content;
+        } 
+    }
+    @if $breakpoint == tab {
+        @media (max-width: 640px) {
+            @content;
+        } 
+    }
+    @if $breakpoint == 639 {
+        @media (max-width: 639px) {
+            @content;
+        } 
+    }
+    @if $breakpoint == sm-desktop {
+        @media (max-width: 1000px) {
+            @content;
+        } 
+    }
+    @if $breakpoint == 999 {
+        @media (max-width: 999px) {
+            @content;
+        } 
+    }
+    @if $breakpoint == 1439 {
+        @media (max-width: 1439px) {
+            @content;
+        } 
+    }
+    @if $breakpoint == 1600 {
+        @media (max-width: 1600px) {
+            @content;
+        }
+    }
+}

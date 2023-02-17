@@ -1,0 +1,41 @@
+.container {
+    width: 90%;
+    @include responsive(1600) {
+        width: $container-width;
+    }
+    @include responsive(1439) {
+        width: 980px;
+    }
+    @include responsive(sm-desktop) {
+        width: 940px;
+    }
+    @include responsive(999) {
+        width: 94%;
+    }
+    @include responsive(tab) {
+        width: 600px;
+    }
+    @include responsive(639) {
+        width: 94%;
+    }
+    @include responsive(phone) {
+        width: 298px;
+    }
+    @include responsive(319) {
+        width: 93%;
+    }
+    margin: 0 auto;
+}
+
+// .overlay {
+//     display: none;
+//     position: fixed;
+//     z-index: 997;
+//     top: 0px;
+//     left: 0px;
+//     background-color: rgba($color: #000000, $alpha: 0.5);
+//     backdrop-filter: blur(1px);
+//     height: 100%;
+//     width: 100%;
+// }
+

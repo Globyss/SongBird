@@ -1,0 +1,46 @@
+.greeting {
+  color: $main-color;
+
+  .greeting__block {
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    width: 60%;
+    background-color: rgba($color: #737373, $alpha: 1);
+    border-radius: 10px;
+  }
+  .greeting__title {
+    font-size: 36px;
+    padding: 20px;
+  }
+  .greeting__description {
+    font-size: 18px;
+  }
+}
+
+.instruction {
+  font-size: 16px;
+  padding-bottom: 40px;
+  p {
+    padding: 40px;
+  }
+
+  .play-button {
+    background-color: transparent;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    .triangle {
+      margin: 0 auto;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-left: 100px solid $main-color;
+      border-bottom: 50px solid transparent;
+
+      &:active{
+        border-left: 100px solid red;
+      }
+  }
+  }
+}

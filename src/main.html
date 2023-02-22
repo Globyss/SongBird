@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SongBird</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header__logo">
+        <a href="./index.html">SongBird</a>
+      </div>
+      <nav class="header__nav">
+        <ul class="nav">
+          <li class="nav__item">
+            <a href="./main.html">Main</a></li>
+          <li class="nav__item">
+            <a href="./results.html">Results</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="questions">
+      <div class="container">
+        <div class="score">Score: <span>0</span></div>
+        <ul class="questions__list">
+          <li class="questions__item questions__item_active">Разминка</li>
+          <li class="questions__item">Воробьиные</li>
+          <li class="questions__item">Лесные птицы</li>
+          <li class="questions__item">Певчие птицы</li>
+          <li class="questions__item">Хищные птицы</li>
+          <li class="questions__item">Морские птицы</li>
+        </ul>
+      </div>
+    </section>
+    <section class="current-question">
+      <div class="container">
+        <div class="current-question__image">
+          <img src="./assets//unknown-bird.jpg" alt="bird-image">
+        </div>
+        <div class="current-question__body">
+          <div class="song-name">******</div>
+          <audio src="" class="question-song"></audio>
+          <div class="player">
+            <button class="player__button">
+              <div class="play"></div>
+            </button>
+            <div class="player__timeline">
+              <div class="past-time"></div>
+              <div class="point"></div>
+              <div class="current-time">0:00</div>
+              <div class="song-duration">0:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="answers">
+      <div class="container">
+        <ul class="answers__list">
+          <li class="answers__item"><span class="result-point"></span><button data-birdId="" class="answers__button" type="button">Bird</button></li>
+          <li class="answers__item"><span class="result-point"></span><button data-birdId="" class="answers__button" type="button">Cat</button></li>
+          <li class="answers__item"><span class="result-point"></span><button data-birdId="" class="answers__button" type="button">Dog</button></li>
+          <li class="answers__item"><span class="result-point"></span><button data-birdId="" class="answers__button" type="button">Kek</button></li>
+          <li class="answers__item"><span class="result-point"></span><button data-birdId="" class="answers__button" type="button">Lol</button></li>
+          <li class="answers__item"><span class="result-point"></span><button data-birdId="" class="answers__button" type="button">Meow</button></li>
+        </ul>
+        <div class="correct-answer">
+          <!-- <p class="correct-answer__instruction">
+            Послушайте плеер.
+            <br>Выберите птицу из списка
+          </p> -->
+          <div class="bird-view">
+            <div class="wrapper">
+              <div class="your-answer__image">
+                <img src="./assets//unknown-bird.jpg" alt="bird-image">
+              </div>
+              <div class="your-answer__body">
+                <div class="bird-name"></div>
+                <div class="species"></div>
+                <div class="player">
+                  <button class="answer-player-button">
+                    <div class="play"></div>
+                  </button>
+                  <div class="player__timeline">
+                    <div class="past-time"></div>
+                    <div class="point"></div>
+                    <div class="current-time">0:00</div>
+                    <div class="song-duration">2:28</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bird-description"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="next-level">
+        <button type="button" class="next-level__button">Next Level</button>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <a href="https://rs.school/">
+        <img class="footer__logo" src="./assets/rs_school_js.svg" alt="rs_school">
+      </a>
+      <a href="https://github.com/Globyss" class="git-link"><span>GitHub - </span>Globyss</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,324 @@
+main {
+  color: $main-color;
+}
+
+.questions {
+
+  .score {
+    text-align: end;
+    font-size: 30px;
+    padding: 6px 10px 6px 10px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+
+  }
+
+  .questions__list {
+    margin: 0 auto;
+    @include flex(center, space-between);
+
+    .questions__item {
+      flex-grow: 1;
+      font-size: 18px;
+      padding: 8px 10px;
+      text-align: center;
+      background-color: rgb(7, 134, 54);
+
+      &:first-child {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+
+      &_active {
+        background-color: rgb(27, 94, 9);
+      }
+    }
+  }
+}
+
+.current-question {
+  margin: 30px 0 0 0;
+  .container{
+    background-color: #737373;
+    border-radius: 6px;
+    padding: 20px;
+    @include flex(flex-start);
+    gap: 50px
+  }
+
+  .current-question__image {
+    img {
+      width: 200px;
+      height: 155px;
+      border-radius: 10px;
+      object-fit: cover;
+
+    }
+  }
+
+  .current-question__body {
+    width: 100%;
+
+    .song-name {
+      font-size: 24px;
+      padding: 10px 0 40px 10px;
+    }
+
+    .player {
+      @include flex(center,space-around);
+
+      .player__button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid rgb(7, 134, 54);
+        background-color: transparent;
+        position: relative;
+        .play {
+          position: absolute;
+          top: calc(50% - 10px);
+          left: calc(50% - 7px);
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-left: 20px solid rgb(7, 134, 54);
+          border-bottom: 10px solid transparent;
+        }
+        .pause {
+          position: absolute;
+          top: 12px;
+          left: 14px;
+          width: 16px;
+          height: 22px;
+          border-left: 5px solid rgb(7, 134, 54);
+          border-right: 5px solid rgb(7, 134, 54);
+
+        }
+      }
+
+      .player__timeline {
+        width: 90%;
+        height: 6px;
+        background-color: rgb(73, 73, 73);
+        border-radius: 4px;
+        font-size: 14px;
+        @include flex(center, space-between);
+        position: relative;
+
+        .point {
+          position: absolute;
+          height: 12px;
+          width: 12px;
+          background-color: #262525;
+          border-radius: 50%;
+        }
+
+        .past-time {
+          position: absolute;
+          width: 0px;
+          height: 6px;
+          background-color: #399809;
+        }
+
+        .current-time {
+          margin-top: 40px;
+        }
+
+        .song-duration {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+
+.answers {
+  font-size: 18px;
+
+  .container{
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .answers__list {
+    flex-grow: 1;
+    flex-basis: 100%;
+
+    .answers__item {
+      background-color: rgb(73, 73, 73);
+      border: 1px solid $main-color;
+      position: relative;
+
+      &:hover {
+        background-color: rgb(111, 110, 110);
+      }
+
+      .answers__button {
+        width: 100%;
+        background-color: transparent;
+        text-align: start;
+        padding: 10px 0 10px 30px;
+        font-size: 18px;
+        color: $main-color;
+      }
+
+      .result-point {
+        position: absolute;
+        top: 16px;
+        left: 12px;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        background: #262525;
+
+        &_correct {
+          background: green;
+        }
+
+        &_wrong {
+          background: red;
+        }
+      }
+
+
+      &:first-child {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+
+      }
+    }
+  }
+
+  .correct-answer {
+    background-color: rgb(73, 73, 73);
+    flex-grow: 1;
+    flex-basis: 100%;
+    border-radius: 6px;
+    padding: 20px;
+
+    .correct-answer__instruction {
+      padding: 20px;
+    }
+
+    .bird-view {
+      .bird-description{
+        padding: 10px 0 10px 0;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+
+      .your-answer__image {
+        img {
+          width: 200px;
+          height: 155px;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+
+      .your-answer__body {
+        width: 100%;
+
+        .bird-name {
+          font-size: 24px;
+          padding: 10px 0 20px 10px;
+        }
+
+        .species {
+          padding: 10px 0 20px 10px;
+        }
+
+        .player {
+          @include flex(center,space-around);
+
+          .answer-player-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid rgb(7, 134, 54);
+            background-color: transparent;
+            position: relative;
+            .play {
+              position: absolute;
+              top: calc(50% - 10px);
+              left: calc(50% - 7px);
+              width: 0;
+              height: 0;
+              border-top: 10px solid transparent;
+              border-left: 20px solid rgb(7, 134, 54);
+              border-bottom: 10px solid transparent;
+            }
+          }
+
+          .player__timeline {
+            width: 90%;
+            height: 6px;
+            background-color: rgb(55, 55, 55);
+            border-radius: 4px;
+            font-size: 14px;
+            @include flex(center, space-between);
+            position: relative;
+
+            .point {
+              position: absolute;
+              height: 12px;
+              width: 12px;
+              background-color: #262525;
+              border-radius: 50%;
+            }
+
+            .past-time {
+              position: absolute;
+              width: 0px;
+              height: 6px;
+              background-color: #399809;
+            }
+
+            .current-time {
+              margin-top: 40px;
+            }
+
+            .song-duration {
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.next-level {
+  text-align: center;
+  background-color: rgb(73, 73, 73);
+  margin: 30px 0 20px 0;
+  border-radius: 6px;
+  .next-level__button {
+    border-radius: 6px;
+    color: $main-color;
+    font-size: 20px;
+    background-color: transparent;
+    padding: 10px;
+    width: 100%;
+    transition: 0.3s;
+    border: 1px solid rgb(111, 110, 110);
+    &:active {
+      border-color: $main-color;
+    }
+  }
+}

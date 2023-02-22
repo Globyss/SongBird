@@ -1,0 +1,20 @@
+.footer {
+  border-top: 2px solid;
+  border-radius: 30px;
+  padding: 10px;
+  color: $main-color;
+
+  .container {
+    @include flex(center, space-between);
+  }
+
+  .footer__logo {
+    height: 60px;
+  }
+
+  .git-link {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 700;
+  }
+}

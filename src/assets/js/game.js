@@ -1,9 +1,15 @@
 import birdsList from './birds'
+import { answerAudio, player, selectedQuestionSettings } from './player';
 
 const answersList = document.body.querySelector('.answers__list');
+const answerPlayBtn = document.querySelector('.answer-player-button');
+const birdView = document.querySelector('.bird-view');
+const instructions = document.querySelector('.correct-answer__instruction');
+const playerNode = document.body.querySelector('.your-answer__body .player');
+const loadingMessage = document.body.querySelector('.your-answer__body .loading-message');
+
 
 const correctAnswer = selectBird(birdsList, 0);
-console.log(correctAnswer)
 let isLevelWin = false;
 let triesCounter = 0;
 let score = 0;
@@ -86,10 +92,16 @@ answersList.addEventListener('click', (event) => {
       birdSpecies.textContent = item.species;
       birdDescription.textContent = item.description;
       birdImage.src = item.image;
+      player(answerAudio, item.audio, selectedQuestionSettings);
+      birdView.classList.remove('bird-view_hidden');
+      instructions.style.display = 'none';
+      playerNode.style.visibility = 'hidden';
+      loadingMessage.style.display = 'block';
     }
   }
   if (isLevelWin) return;
   winCombination(correctAnswer, birdId, event.target.previousElementSibling);
 })
+
 
 export {selectBird, fillAnswers, correctAnswer}

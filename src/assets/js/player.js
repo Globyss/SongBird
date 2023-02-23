@@ -1,37 +1,59 @@
+import { correctAnswer } from "./game";
 let isPlay = false;
-const audio = new Audio();
 
-const playBtn = document.querySelector('.player__button');
-const answerPlayBtn = document.querySelector('.answer-player-button');
-const songDurationNode = document.body.querySelector('.song-duration')
-const currentTime = document.body.querySelector('.current-time');
-const playerPoint = document.body.querySelector('.point');
-const playerPastTime = document.body.querySelector('.past-time');
+const questionAudio = new Audio();
+const answerAudio = new Audio();
 
-function timeProgress(currentTime, fullTime) {
-  let percent = currentTime / fullTime * 100;
-  playerPoint.style.left = `${percent}%`;
-  playerPastTime.style.width = `${percent}%`;
+
+const questionSettings = {
+  playBtn: document.querySelector('.player__button'),
+  songDurationNode: document.body.querySelector('.song-duration'),
+  currentTime: document.body.querySelector('.current-time'),
+  playerPoint: document.body.querySelector('.point'),
+  playerPastTime: document.body.querySelector('.past-time'),
+  loadingMessage: document.body.querySelector('.current-question__body .loading-message'),
+  playerNode: document.body.querySelector('.player'),
+
 }
 
-function player(src) {
+const selectedQuestionSettings = {
+  playBtn: document.querySelector('.answer-player-button'),
+  songDurationNode: document.body.querySelector('.your-answer__song-duration'),
+  currentTime: document.body.querySelector('.your-answer__current-time'),
+  playerPoint: document.body.querySelector('.your-answer__point'),
+  playerPastTime: document.body.querySelector('.your-answer__past-time'),
+  loadingMessage: document.body.querySelector('.your-answer__body .loading-message'),
+  playerNode: document.body.querySelector('.your-answer__body .player'),
+}
+
+function player(audio, src, settings) {
   audio.src = src;
-  audio.addEventListener("loadedmetadata", () => songDurationNode.textContent = setDuration(audio.duration));
+  audio.addEventListener("loadedmetadata", () => settings.songDurationNode.textContent = setDuration(audio.duration));
+  audio.addEventListener('loadeddata', () => {
+    settings.playerNode.style.visibility = 'visible';
+    settings.loadingMessage.style.display = 'none'
+  })
 }
 
-function playAudio() {
+function timeProgress(currentTime, fullTime, settings) {
+  let percent = currentTime / fullTime * 100;
+  settings.playerPoint.style.left = `${percent}%`;
+  settings.playerPastTime.style.width = `${percent}%`;
+}
+
+function playAudio(audio, settings) {
   if (!isPlay) {
     audio.play();
     isPlay = true;
     setInterval(() => {
-      currentTime.textContent = setDuration(audio.currentTime);
-      timeProgress(audio.currentTime, audio.duration);
+      settings.currentTime.textContent = setDuration(audio.currentTime);
+      timeProgress(audio.currentTime, audio.duration, settings);
     }, 500)
   } else {
     audio.pause();
     isPlay = false;
   }
-  toggleBtn()
+  toggleBtn(settings)
 }
 
 function setDuration(duration) {
@@ -53,14 +75,14 @@ function setDuration(duration) {
   return `${minutes}:${seconds}`;
 }
 
-function toggleBtn() {
-  let btn = playBtn.children[0]
+function toggleBtn(settings) {
+  let btn = settings.playBtn.children[0]
   if (isPlay) btn.className = 'pause';
   if (!isPlay) btn.className = 'play';
 }
 
 
 
-playBtn.addEventListener('click', playAudio);
-answerPlayBtn.addEventListener('click', playAudio)
-export default player
+questionSettings.playBtn.addEventListener('click', () => playAudio(questionAudio, questionSettings));
+selectedQuestionSettings.playBtn.addEventListener('click', () => playAudio(answerAudio, selectedQuestionSettings));
+export { player, questionAudio, answerAudio, questionSettings, selectedQuestionSettings }

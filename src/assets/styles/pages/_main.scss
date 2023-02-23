@@ -41,6 +41,27 @@ main {
   }
 }
 
+.play {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 7px);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 20px solid rgb(7, 134, 54);
+  border-bottom: 10px solid transparent;
+}
+.pause {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  width: 16px;
+  height: 22px;
+  border-left: 5px solid rgb(7, 134, 54);
+  border-right: 5px solid rgb(7, 134, 54);
+
+}
+
 .current-question {
   margin: 30px 0 0 0;
   .container{
@@ -71,6 +92,7 @@ main {
 
     .player {
       @include flex(center,space-around);
+      visibility: hidden;
 
       .player__button {
         width: 50px;
@@ -79,26 +101,7 @@ main {
         border: 3px solid rgb(7, 134, 54);
         background-color: transparent;
         position: relative;
-        .play {
-          position: absolute;
-          top: calc(50% - 10px);
-          left: calc(50% - 7px);
-          width: 0;
-          height: 0;
-          border-top: 10px solid transparent;
-          border-left: 20px solid rgb(7, 134, 54);
-          border-bottom: 10px solid transparent;
-        }
-        .pause {
-          position: absolute;
-          top: 12px;
-          left: 14px;
-          width: 16px;
-          height: 22px;
-          border-left: 5px solid rgb(7, 134, 54);
-          border-right: 5px solid rgb(7, 134, 54);
 
-        }
       }
 
       .player__timeline {
@@ -217,6 +220,9 @@ main {
         padding: 10px 0 10px 0;
       }
     }
+    .bird-view_hidden {
+      visibility: hidden;
+    }
 
     .wrapper {
       display: flex;
@@ -273,7 +279,7 @@ main {
             @include flex(center, space-between);
             position: relative;
 
-            .point {
+            .your-answer__point {
               position: absolute;
               height: 12px;
               width: 12px;
@@ -281,18 +287,18 @@ main {
               border-radius: 50%;
             }
 
-            .past-time {
+            .your-answer__past-time {
               position: absolute;
               width: 0px;
               height: 6px;
               background-color: #399809;
             }
 
-            .current-time {
+            .your-answer__current-time {
               margin-top: 40px;
             }
 
-            .song-duration {
+            .your-answer__song-duration {
               margin-top: 40px;
             }
           }
@@ -321,4 +327,7 @@ main {
       border-color: $main-color;
     }
   }
+}
+.loading-message {
+  font-size: 26px;
 }

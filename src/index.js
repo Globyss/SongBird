@@ -1,10 +1,9 @@
 import './assets/styles/style.scss';
-import {selectBird, fillAnswers, correctAnswer} from './assets/js/game';
+import {selectBird, fillAnswers, correctAnswer, level} from './assets/js/game';
+import birdsList from './assets/js/birds'
 import {player, questionAudio, questionSettings} from './assets/js/player';
 
-// for (let i = 0; i < birdsList.length; i++) {
-//   console.log(selectBird(birdsList, i))
-// }
-fillAnswers()
+
+fillAnswers(level)
 
 player(questionAudio, correctAnswer.audio, questionSettings)

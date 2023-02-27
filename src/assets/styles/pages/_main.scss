@@ -314,6 +314,7 @@ main {
   background-color: rgb(73, 73, 73);
   margin: 30px 0 20px 0;
   border-radius: 6px;
+
   .next-level__button {
     border-radius: 6px;
     color: $main-color;
@@ -327,6 +328,10 @@ main {
       border-color: $main-color;
     }
   }
+
+}
+.next-level_active {
+  background-color: rgb(118, 230, 74);
 }
 .loading-message {
   font-size: 26px;

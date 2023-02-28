@@ -140,7 +140,8 @@ function nextLevel(list) {
 }
 
 function endGame() {
-  // window.location.href = './results.html';
+  localStorage.setItem("score", score);
+  window.location.href = './results.html';
 }
 
 export {selectBird, fillAnswers, correctAnswer, level}

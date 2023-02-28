@@ -1,4 +1,3 @@
-import { correctAnswer } from "./game";
 let isPlay = false;
 
 const questionAudio = new Audio();

@@ -22,10 +22,12 @@ module.exports = ({develop}) => ({
   devtool: develop ? 'inline-source-map' : false,
   entry: {
     app: './src/index.js',
+    result: './src/assets/js/result.js',
   },
   output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
+      library: '[name]',
       assetModuleFilename: 'assets/[name][ext]',
   },
   module: {
@@ -60,6 +62,9 @@ module.exports = ({develop}) => ({
     new HtmlWebpackPlugin({
       filename: './results.html',
       template: './src/results.html',
+      chunks: [
+        'result',
+      ]
     }),
 
     new MiniCssExtractPlugin({
